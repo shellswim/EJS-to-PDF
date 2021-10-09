@@ -1,8 +1,8 @@
 [
   {
-    "type": "HTMLPDFWrapper",
-    "module": "HTMLPDFWrapper",
-    "action": "ssaPDFConvert",
+    "type": "EJStoHTML",
+    "module": "EJStoHTML",
+    "action": "EJStoHTML",
     "groupTitle": "File Management",
     "groupIcon": "fas fa-lg fa-file comp-files",
     "title": "Generate PDF Receipt @@var(name)@@",
