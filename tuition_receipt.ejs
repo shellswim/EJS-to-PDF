@@ -1,0 +1,52 @@
+<% var data, host %>
+<!DOCTYPE html>
+<head>
+    <link href="<%= host %>/bootstrap/5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<%- include('partials/header', {host: host}); %>
+<section class="mb-4 pb-4 border-bottom">
+    <div class="row">
+        <h3 class="fw-bold">Purchases</h3>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-sm small table-bordered"> 
+                <thead>
+                    <tr>
+                        <td style="width: 1%; white-space: nowrap;">SID</td>
+                        <td>Class</td>
+                        <td>Class Date</td>
+                        <td>Paid</td>
+                        <td>Remaining</td>
+                    </tr>
+                </thead>
+                <% for( let i = 0; i < data.length; i++ ) { %>
+                    <% var d = data[i] %> 
+                    <tbody>
+                        <tr>
+                            <th colspan="5" class="bg-light"><%= d.firstName %> <%= d.lastName %></th>
+                        </tr>
+                        <% for( let j = 0; j < d.lineitems.length; j++ ) { %>
+                            <% var li = d.lineitems[j] %>
+                            <tr>
+                                <td><%= d.studentid _%></td>
+                                <td><%= li.dayname + ' ' + li.levelname + ' ' + li.startTimeDisplay + ' - ' + li.instructorfirst + ' ' + li.instructorlast.substring(0,1) + '.' _%></td>
+                                <td><%= new Date(li.classDate).toLocaleDateString('en-gb',{ year: 'numeric', month: 'long', day: 'numeric'}); _%></td>
+                                <td><%= li.enrolmentTotal _%></td>
+                                <td><%= li.paid _%></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <h3 class="fw-bold">Payments</h3>
+    </div>
+    <div class="row"></div>
+</section>
+</body>
