@@ -1,0 +1,290 @@
+[
+  {
+    "type": "EJStoPDF",
+    "module": "EJStoPDF",
+    "action": "EJStoPDF",
+    "groupTitle": "File Management",
+    "groupIcon": "fas fa-lg fa-file comp-files",
+    "title": "EJS to PDF @@var(name)@@",
+    "icon": "fad fa-lg fa-file-pdf comp-files",
+    "dataScheme": [
+      {
+        "name": "FileName",
+        "type": "text"
+      },
+      {
+        "name": "FilePath",
+        "type": "text"
+      }
+    ],
+    "dataPickObject": true,
+    "properties": [
+      {
+        "group": "Page",
+        "variables": [
+          {
+            "name": "name",
+            "optionName": "name",
+            "title": "Name<sup style='color: red'>*</sup>",
+            "type": "text",
+            "required": true,
+            "defaultValue": "HTML to PDF"
+          },
+          {
+            "name": "tempPath",
+            "optionName": "tempPath",
+            "title": "Path to Receipt Template",
+            "type": "text",
+            "help": "Path relative to your views folder",
+            "defaultValue": "",
+            "serverDataBindings": true
+          },
+          {
+            "name": "headerTemplate",
+            "optionName": "headerTemplate",
+            "title": "Header Template",
+            "type": "text",
+            "defaultValue": "",
+            "help": "Leave blank if you don't want to use a header.\nShould be valid HTML markup with following classes used to inject printing values into them:\n- date, title, url, pageNumber, totalPages",
+            "serverDataBindings": true
+          },
+          {
+            "name": "footerTemplate",
+            "optionName": "footerTemplate",
+            "title": "Footer Template",
+            "type": "text",
+            "defaultValue": "",
+            "help": "Leave blank if you don't want to use a footer.",
+            "serverDataBindings": true
+          },
+          {
+            "name": "printbackground",
+            "optionName": "printbackground",
+            "title": "Print Background Colours?",
+            "type": "droplist",
+            "help": "Do you want CSS background colours printed to your PDF?",
+            "values": [
+              {"title": "Print Backgrounds", "value": "true"},
+              {"title": "Don't Print Backgrounds", "value": "false"}
+            ]
+          },
+          {
+            "name": "orientation",
+            "optionName": "orientation",
+            "title": "Orientation<sup style='color: red'>*</sup>",
+            "type": "droplist",
+            "values": [
+              {
+                "title": "Portrait",
+                "value": "p"
+              },
+              {
+                "title": "Landscape",
+                "value": "l"
+              }
+            ],
+            "required": true
+          },
+          {
+            "name": "papersize",
+            "optionName": "papersize",
+            "title": "Paper Size<sup style='color: red'>*</sup>:",
+            "type": "droplist",
+            "values": [
+              {
+                "title": "A3",
+                "value": "A3",
+                "show": [],
+                "hide": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              },
+              {
+                "title": "A4",
+                "value": "A4",
+                "show": [],
+                "hide": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              },
+              {
+                "title": "A5",
+                "value": "A5",
+                "show": [],
+                "hide": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              },
+              {
+                "title": "Legal",
+                "value": "Legal",
+                "show": [],
+                "hide": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              },
+              {
+                "title": "Letter",
+                "value": "Letter",
+                "show": [],
+                "hide": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              },
+              {
+                "title": "Tabloid",
+                "value": "Tabloid",
+                "show": [],
+                "hide": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              },
+              {
+                "title": "Custom",
+                "value": "Custom",
+                "hide": [],
+                "show": [
+                  "pageWidth",
+                  "pageHeight",
+                  "units"
+                ]
+              }
+            ],
+            "required": true
+          },
+          {
+            "name": "pageHeight",
+            "optionName": "pageHeight",
+            "title": "Page Height",
+            "type": "text",
+            "help": "Make sure you set the units you want to use. E.g. mm, cm, in, px.",
+            "initDisplay": "none",
+            "defaultValue": ""
+          },
+          {
+            "name": "pageWidth",
+            "optionName": "pageWidth",
+            "title": "Page Width",
+            "type": "text",
+            "help": "Make sure you set the units you want to use. E.g. mm, cm, in, px.",
+            "initDisplay": "none",
+            "defaultValue": ""
+          },
+          {
+            "name": "webscale",
+            "optionName": "webscale",
+            "title": "Webpage Scale",
+            "type": "numberorstring",
+            "help": "Scale of the webpage rendering. Scale amount must be between 0.1 and 2.",
+          }
+        ]
+      },
+      {
+        "group": "Margins",
+        "variables": [
+          {
+            "name": "usemargins",
+            "optionName": "usemargins",
+            "title": "Use Margins?",
+            "type": "boolean",
+            "defaultValue": true,
+            "show": [
+              "topMargin",
+              "rightMargin",
+              "bottomMargin",
+              "leftMargin"
+            ]
+          },
+          {
+            "name": "topMargin",
+            "optionName": "topMargin",
+            "title": "Top Margin",
+            "type": "text",
+            "defaultValue": "10"
+          },
+          {
+            "name": "rightMargin",
+            "optionName": "rightMargin",
+            "title": "Right Margin",
+            "type": "text",
+            "defaultValue": "10"
+          },
+          {
+            "name": "bottomMargin",
+            "optionName": "bottomMargin",
+            "title": "Bottom Margin",
+            "type": "text",
+            "defaultValue": "10"
+          },
+          {
+            "name": "leftMargin",
+            "optionName": "leftMargin",
+            "title": "Left Margin",
+            "type": "text",
+            "defaultValue": "10"
+          }
+        ]
+      },
+      {
+        "group": "Output",
+        "variables": [
+          {
+            "name": "folderName",
+            "optionName": "folderName",
+            "title": "Folder Name<sup style='color: red'>*</sup>",
+            "type": "text",
+            "required": true,
+            "defaultValue": "",
+            "help": "<strong>RELATIVE TO YOUR PUBLIC FOLDER:</strong> e.g. /temp/pdf_templates",
+            "serverDataBindings": true
+          },
+          {
+            "name": "fileName",
+            "optionName": "fileName",
+            "title": "File Name<sup style='color: red'>*</sup>",
+            "type": "text",
+            "required": true,
+            "defaultValue": "",
+            "help": "Name the file to be outputted. Do <strong>NOT</strong> add the file extension",
+            "serverDataBindings": true
+          }
+        ]
+      },
+      {
+        "group": "Options",
+        "variables": [
+          {
+            "name": "jsonresponse",
+            "optionName": "jsonresponse",
+            "title": "JSON Response<sup style='color: red'>*</sup>",
+            "type": "text",
+            "help": "This is your server connect action that queries your data.",
+            "required": true,
+            "serverDataBindings": true
+          },
+          {
+            "name": "hostname",
+            "optionName": "hostname",
+            "title": "Host<sup style='color: red'>*</sup>",
+            "type": "text",
+            "help": "This is the http://localhost:3000 portion of your url. The module needs absolute paths for images, CSS, Javascript and more...",
+            "required": true,
+            "serverDataBindings": true
+          }
+        ]
+      }
+    ]
+  }
+]
