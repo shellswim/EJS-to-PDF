@@ -39,11 +39,17 @@ exports.EJStoPDF = async function(options) {
     } else {
         pdfConfigs.format = options.papersize;
     }
+
+    let topMargin = options.topMargin || 10;
+    let rightMargin = options.rightMargin || 10;
+    let bottomMargin = options.bottomMargin || 10;
+    let leftMargin = options.leftMargin || 10;
+
     pdfConfigs.margin = {
-        top: options.topMargin + 'mm',
-        right: options.rightMargin + 'mm',
-        bottom: options.bottomMargin + 'mm',
-        left: options.leftMargin + 'mm'
+        top: topMargin + 'mm',
+        right: rightMargin + 'mm',
+        bottom: bottomMargin + 'mm',
+        left: leftMargin + 'mm'
     } 
     ////////////// END PAGE CONFIGS
 
