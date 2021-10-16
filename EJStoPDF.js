@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const ejs = require('ejs');
 const fs = require('fs');
 
-exports.EJStoHTML = async function(options) {
+exports.EJStoPDF = async function(options) {
 
     options = this.parse(options);
 
